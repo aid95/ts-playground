@@ -33,4 +33,11 @@ describe("Linked list", function () {
     ll.insert(2, 100);
     expect(ll.indexOf(2)).toBe(100);
   });
+
+  it("peek head", () => {
+    expect(ll.peekFront()).toBe(10);
+  });
+  it("peek tail", () => {
+    expect(ll.peekBack()).toBe(40);
+  });
 });

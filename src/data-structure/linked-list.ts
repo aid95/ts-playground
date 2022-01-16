@@ -125,6 +125,8 @@ export default class LinkedList<T> implements Iterable<T>, ILinkedList<T> {
     const result = this.list.head.value;
     this.list.head = this.list.head.next!;
     this.list.head.prev = null;
+    this.list.size--;
+
     return result;
   }
 
@@ -139,5 +141,15 @@ export default class LinkedList<T> implements Iterable<T>, ILinkedList<T> {
       newNode.prev = tmp;
     }
     newNode.next = p;
+  }
+
+  peekFront(): T {
+    if (!this.list) throw new Error("empty list");
+    return this.list.head.value;
+  }
+
+  peekBack() {
+    if (!this.list) throw new Error("empty list");
+    return this.list.tail.value;
   }
 }
